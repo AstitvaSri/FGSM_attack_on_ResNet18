@@ -27,7 +27,7 @@ data_transforms = {
     ]),
 }
 
-root = '/home/astitva/Workspace/PyTorch_Projects/TransferLearning'
+root = 'FGSM'
 
 data_dir = root+'/hymenoptera_data'
 
