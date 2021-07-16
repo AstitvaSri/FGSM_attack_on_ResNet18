@@ -57,22 +57,9 @@ def fgsm_attack(image, epsilon, data_grad):
     # Return the perturbed image
     return perturbed_image
 
-def imshow(inp, title=None):
-    """Imshow for Tensor."""
-    inp = inp.numpy().transpose((1, 2, 0))
-    mean = np.array([0.485, 0.456, 0.406])
-    std = np.array([0.229, 0.224, 0.225])
-    inp = std * inp + mean
-    inp = np.clip(inp, 0, 1)
-    if title is not None:
-        plt.title(title)
-    plt.pause(0.001)  # pause a bit so that plots are updated
-    plt.imshow(inp)
-    plt.show()
-
 def attack_model(model, num_images=10, epsilon=0.05, debug=False, visualize=False):
     # load model weights
-    model.load_state_dict(torch.load('/home/astitva/Workspace/PyTorch_Projects/TransferLearning/model_weights.pth'))
+    model.load_state_dict(torch.load(root+'/model_weights.pth'))
     model.eval()
     images_so_far = 0
     accuracy = 0.0
